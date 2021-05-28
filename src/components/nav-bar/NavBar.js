@@ -14,7 +14,7 @@ function NavBar({ children }) {
     <div className="navbar">
       <Router history={history}>
         <div className="nav">
-          <img src={LogoSvg} alt="1 THING I DID TO FIGHT RACISM" />
+          <Link to="/"><img className="nav__logo" src={LogoSvg} alt="1 THING I DID TO FIGHT RACISM" /></Link>
           <img className="nav__menu" src={MenuSvg} alt="menu" onClick={() => setIsShowMenu(!isShowMenu)} />
 
           {isShowMenu && (
