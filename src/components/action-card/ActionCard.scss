@@ -1,0 +1,35 @@
+.action-card {
+  position: relative;
+  padding: 14px;
+  display: inline-block;
+  -moz-box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  width: 256px;
+  height: 168px;
+  white-space: normal;
+
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  &__title {
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  &__support {
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
+    font-weight: 500;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+
+    img {
+      margin-right: 6px;
+    }
+  }
+}

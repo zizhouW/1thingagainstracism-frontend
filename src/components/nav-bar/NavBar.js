@@ -32,6 +32,7 @@ function NavBar({ children }) {
             <Link to="/about" className="navbar__directory__link" onClick={() => setIsShowMenu(false)}><div>Newsletter</div></Link>
           </div>
         )}
+        <div>footer</div>
       </Router>
     </div>
   );
