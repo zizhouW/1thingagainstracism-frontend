@@ -17,8 +17,8 @@ function AllActions() {
   return (
     <div className="all-actions">
       <h2>What people have done?</h2>
-      {actions.map(() => {
-        return <div>actions.name</div>
+      {actions.map((action) => {
+        return <div><div>{action.name}, vote: {action.vote_count}</div><div>{action.created_at}, vote: {action.description}</div></div>
       })}
     </div>
   );
