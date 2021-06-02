@@ -1,16 +1,24 @@
 import { API_HOST } from '../constants';
 
-function getActions(callback) {
-  return fetch(API_HOST + "/actions?orderBy=time")
-      .then(res => res.json())
-      .then(
-        (result) => {
-          callback(result?.actions);
-        },
-        (error) => {
-          callback(error, true);
-        }
-      )
+function getActions(lastActionId, callback) {
+  return fetch(`${API_HOST}/actions?orderBy=time&limit=5${lastActionId ? `&offset=${lastActionId}` : ''}`)
+  .then(res => res.json())
+  .then((result) => {
+    callback(result?.actions);
+  }, (error) => {
+    callback(error, true);
+  })
+}
+
+function getAction(actionId, callback) {
+  if (!actionId) return;
+  return fetch(`${API_HOST}/actions/${actionId}`)
+  .then((res) => res.json())
+  .then((result) => {
+    callback(result);
+  }), (error) => {
+    callback(error, true);
+  }
 }
 
 function voteAction(actionId, callback) {
@@ -19,11 +27,11 @@ function voteAction(actionId, callback) {
     method: 'post',
   })
   .then(res => res.json())
-  .then(() => {
-    callback(actionId);
-  }, (error) => {
-    callback(actionId, true);
+  .then((result) => {
+    callback(actionId, result.vote_count);
+  }, () => {
+    callback(actionId, undefined, true);
   });
 }
 
-export { getActions, voteAction };
+export { getActions, getAction, voteAction };
