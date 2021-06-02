@@ -27,8 +27,10 @@ function Newsletter({ handleNewsletterSignup }) {
         className="newsletter__email"
         placeholder="Your email address"
         inputProps={{ 'aria-label': 'email' }}
-        // onFocus={() => setIsEmailValid(true)}
-        onChange={(event) => setEmail(event.target.value)}
+        onChange={(event) => {
+          setIsEmailValid(true);
+          setEmail(event.target.value)
+        }}
         value={email}
         error={!isEmailValid}
         helperText={isEmailValid ? '' : 'Invalid email, please enter again'}

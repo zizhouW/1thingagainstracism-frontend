@@ -17,7 +17,7 @@ function Home() {
       <div className="subheading">We‘re here to help.</div>
       <div className="subheading">Our mission is to ......</div>
 
-      <div className="share-action">
+      <div className="share-action-popup">
         <Popup
           trigger={<MButton variant="contained" color="primary">Share 1 thing you did</MButton>}
         >
@@ -46,8 +46,8 @@ function Home() {
 
       <div className="questions">
         <Link className="questions__link" to="/actions"><img src={WhatPeople} alt="What people have done?" /></Link>
-        <img src={WhatCan} alt="What can I help with" onClick={() => alert('go to all projects')} />
-        <img src={WhyShould} alt="Why should I act" onClick={() => alert('go to why act')} />
+        <Link className="questions__link" to="/actions"><img src={WhatCan} alt="What can I help with" /></Link>
+        <Link className="questions__link" to="/actions"><img src={WhyShould} alt="Why should I act" /></Link>
       </div>
 
       <Newsletter handleNewsletterSignup={() => alert('yo')}/>

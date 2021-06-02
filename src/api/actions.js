@@ -1,17 +1,29 @@
+import { API_HOST } from '../constants';
+
 function getActions(callback) {
-  return fetch("https://1-thing.org/actions?orderBy=time")
+  return fetch(API_HOST + "/actions?orderBy=time")
       .then(res => res.json())
       .then(
         (result) => {
           callback(result?.actions);
         },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
         (error) => {
           callback(error, true);
         }
       )
 }
 
-export { getActions };
+function voteAction(actionId, callback) {
+  if (!actionId) return;
+  return fetch(`${API_HOST}/actions/${actionId}/vote`, {
+    method: 'post',
+  })
+  .then(res => res.json())
+  .then(() => {
+    callback(actionId);
+  }, (error) => {
+    callback(actionId, true);
+  });
+}
+
+export { getActions, voteAction };

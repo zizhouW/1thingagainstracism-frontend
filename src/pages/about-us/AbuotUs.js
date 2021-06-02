@@ -6,7 +6,7 @@ function AboutUs() {
     <div className="about-us">
       about us
       
-      <SocialMediaShare link="https://google.com"/>
+      <SocialMediaShare link="https://www.1-thing.org/"/>
     </div>
   );
 }
