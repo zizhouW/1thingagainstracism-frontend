@@ -1,12 +1,22 @@
 import React, { useState } from 'react';
 import { TextField } from '@material-ui/core';
+import { bulkUpload } from '../../api/upload';
 import MButton from '../m-button/MButton';
 import CameraSvg from './camera.svg';
 import './ShareAction.scss';
 
-function ShareAction({ handleSubmit }) {
+function ShareAction() {
   const [description, setDescription] = useState('');
   const [isError, setIsError] = useState(false);
+  const [images, setImages] = useState([]);
+  
+  const imagesSelectedHandler = (e) => {
+    setImages([...images, ...e.target.files]);
+  }
+  
+  const handleSubmit = () => {
+    if (images) bulkUpload(images, () => alert('uploaded successfully'));
+  }
 
   return (
     <div className="share-action">
@@ -24,8 +34,15 @@ function ShareAction({ handleSubmit }) {
         error={isError}
         helperText={isError ? 'Please enter one thing you did to fight racism' : ''}
       />
+      <div className="share-action__preview">
+        {images?.map((image, idx) => {
+          const url = URL.createObjectURL(image);
+          return <img className="share-action__preview__image" src={url} alt={`image-${idx+1}`} key={`image-${idx+1}`} />
+        })}
+      </div>
       <div className="share-action__upload">
-        <img src={CameraSvg} alt="upload image" />
+        <label htmlFor="image-upload"><img src={CameraSvg} alt="upload image" /></label>
+        <input type="file" id="image-upload" name="image-upload" multiple onChange={imagesSelectedHandler} accept="image/*" />
       </div>
       <MButton
         className="share-action__submit"
