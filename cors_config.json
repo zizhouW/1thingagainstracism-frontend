@@ -26,5 +26,33 @@
             "*"
         ],
         "maxAgeSeconds": 3600
+    },
+    {
+        "origin": [
+            "https://www.1-thing.org"
+        ],
+        "method": [
+            "POST",
+            "PUT",
+            "GET"
+        ],
+        "responseHeader": [
+            "*"
+        ],
+        "maxAgeSeconds": 3600
+    },
+    {
+        "origin": [
+            "https://1-thing.org"
+        ],
+        "method": [
+            "POST",
+            "PUT",
+            "GET"
+        ],
+        "responseHeader": [
+            "*"
+        ],
+        "maxAgeSeconds": 3600
     }
 ]
