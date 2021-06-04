@@ -1,25 +1,54 @@
 .action-card {
   position: relative;
   padding: 14px;
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: column;
   -moz-box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
   font-size: 14px;
   width: 256px;
-  height: 168px;
+  height: 176px;
   white-space: normal;
 
   &:not(:last-child) {
     margin-right: 8px;
   }
 
+  &:first-child > .action-card__title {
+    background: #C4C4C4;
+  }
+
+  &:nth-child(2) > .action-card__title {
+    background: #D5D5D5;
+  }
+
+  &:nth-child(3) > .action-card__title {
+    background: #FBEBB3;
+  }
+
+  &:nth-child(4) > .action-card__title {
+    background: #C5FBB3;
+  }
+
+  &:nth-child(5) > .action-card__title {
+    background: #B3B6FB;
+  }
+
+  &:last-child > .action-card__title {
+    background: #FBC8B3;
+  }
+
   &__title {
     font-weight: bold;
     margin-bottom: 8px;
+    margin: -14px -14px 0;
+    padding: 8px 14px 0;
+    height: 55px;
   }
 
   &__description {
+    padding-top: 8px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -29,8 +58,8 @@
 
   &__support {
     position: absolute;
-    bottom: 14px;
-    right: 14px;
+    bottom: 8px;
+    left: 14px;
     font-weight: 500;
     font-size: 12px;
     display: flex;

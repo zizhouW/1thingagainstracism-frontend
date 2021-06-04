@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ActionCard from '../../components/action-card/ActionCard';
 import MButton from '../../components/m-button/MButton';
 import Popup from '../../components/pop-up/Popup';
@@ -9,8 +10,8 @@ import WhatCan from './what-can-i-help-with.svg';
 import WhatPeople from './what-people-have-done.svg';
 import WhyShould from './why-should-i-act.svg';
 import './Home.scss';
-import { Link } from 'react-router-dom';
-import ShareAction from '../../components/share-action/ShareAction';
+
+
 function Home() {
   return (
     <div className="home">
@@ -28,7 +29,7 @@ function Home() {
         </div>
       </div>
 
-      
+      <h3 className="home__section-title">Instant actions</h3>
       <div className="action-card-list">
         <ActionCard
           title="Support the immediate needs of AAPI groups"
@@ -41,9 +42,24 @@ function Home() {
           handleSupport={() => alert('Thank you for your support!')}
         />
         <ActionCard
-          title="Donate to support Anti-Asian crime victims"
-          description="Go to https://www.gofundme.com/c/act/stop-aapi-hate to support Anti-Asian crime victims."
-          handleSupport={() => alert('Thank you for your support!o')}
+          title="Speak out if you witness a hate crime or incident"
+          description="“If you happen to find yourself witnessing something … either speak out or actually intervene and defend the other person,”"
+          handleSupport={() => alert('Thank you for your support!')}
+        />
+        <ActionCard
+          title="Check in with your Asian American peers"
+          description="By asking Asian Americans in your life what you can do to support them during the current climate is significant."
+          handleSupport={() => alert('Thank you for your support!')}
+        />
+        <ActionCard
+          title="Reach out to your elected officials"
+          description="Americans should ask politicians to work toward better ways of understanding and collecting data on hate crimes. "
+          handleSupport={() => alert('Thank you for your support!')}
+        />
+        <ActionCard
+          title="Advocate for awareness in your workplace"
+          description="Use your platform to talk about this racism to understand it, so that you can think about how you want to participate in taking actions."
+          handleSupport={() => alert('Thank you for your support!')}
         />
       </div>
 

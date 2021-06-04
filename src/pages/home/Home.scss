@@ -29,9 +29,17 @@
       margin-bottom: 12px;
     }
 
-    .share-action-popup {
-      margin-top: 44px;
+    &__subtitle {
+      font-size: 14px;
     }
+
+    .share-action-popup {
+      margin-top: 46px;
+    }
+  }
+
+  &__section-title {
+    margin: 24px 0 0;
   }
 
   .action-card-list {

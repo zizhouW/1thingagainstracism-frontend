@@ -44,7 +44,7 @@ function WhyAct() {
           title="College Student"
         />
       </div>
-      <Newsletter handleNewsletterSignup={() => alert('sign up')}/>
+      <Newsletter handleNewsletterSignup={() => alert('Thank you for signing up')}/>
     </div>
   );
 }
