@@ -3,8 +3,9 @@
 .navbar {
   .nav {
     background-color: #E2963E;
-    padding: 8px 16px;
+    padding: 9px 16px;
     position: relative;
+    overflow: hidden;
 
     &__menu {
       position: absolute;
@@ -13,6 +14,10 @@
       height: 24px;
       top: 7px;
     }
+  }
+
+  .content--no-scroll {
+    overflow-y: hidden;
   }
 
   &__directory {
