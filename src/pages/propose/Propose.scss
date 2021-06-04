@@ -1,0 +1,29 @@
+.propose {
+  padding: 0 16px;
+
+  &__title {
+    margin-block-end: 12px;
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 24px;
+    div {
+      display: inline-block;
+    }
+  }
+
+  &__section {
+    &__title {
+
+    }
+
+    .MuiInputBase-root.MuiInput-root {
+      display: block;
+      &, .MuiNativeSelect-root.MuiNativeSelect-select.MuiInputBase-input.MuiInput-input {
+        width: calc(100% - 16px);
+      }
+    }
+  }
+}

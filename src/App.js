@@ -4,6 +4,7 @@ import Home from "./pages/home/Home";
 import NavBar from './components/nav-bar/NavBar';
 import AllActions from "./pages/all-actions/AllActions";
 import ActionDetail from "./pages/action-detail/ActionDetail";
+import Propose from "./pages/propose/Propose";
 import WhyAct from "./pages/why-act/WhyAct";
 import './App.scss';
 
@@ -20,6 +21,9 @@ function App() {
           </Route>
           <Route path="/action/:actionId">
             <ActionDetail />
+          </Route>
+          <Route path="/propose">
+            <Propose />
           </Route>
           <Route path="/about">
             <AboutUs />

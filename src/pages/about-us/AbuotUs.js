@@ -1,5 +1,5 @@
 import React from 'react';
-import MissionSvg from './mission.svg';
+import MissionPng from './mission.png';
 import './AboutUs.scss';
 
 function AboutUs() {
@@ -20,7 +20,7 @@ function AboutUs() {
         Because individually, we are one drop; Together, we are an ocean. 
       </div>
       <div className="about__mission-image">
-        <img src={MissionSvg} alt="mission" />
+        <img src={MissionPng} alt="mission" />
       </div>
     </div>
   );

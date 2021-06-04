@@ -52,6 +52,9 @@ function AllActions() {
         {isLoading ? 'Loading...' : (
           !isAllLoaded ? <MButton color="primary" onClick={getNextActions}>Show more</MButton> : null
         )}
+        {actions && !actions.length && !isLoading && !isError && (
+          <div>No actions have been shared yet, post one below!</div>
+        )}
       </div>
       <ShareAction />
     </div>
