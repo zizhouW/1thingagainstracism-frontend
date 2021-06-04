@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TextField } from '@material-ui/core';
+import { createAction } from '../../api/actions';
 import { bulkUpload } from '../../api/upload';
 import MButton from '../m-button/MButton';
 import CameraSvg from './camera.svg';
@@ -9,13 +10,47 @@ function ShareAction() {
   const [description, setDescription] = useState('');
   const [isError, setIsError] = useState(false);
   const [images, setImages] = useState([]);
-  
+
   const imagesSelectedHandler = (e) => {
     setImages([...images, ...e.target.files]);
   }
-  
+
   const handleSubmit = () => {
-    if (images) bulkUpload(images, () => alert('uploaded successfully'));
+    if (images) {
+      bulkUpload(images, (uploaded) => {
+        //uploaded has list of file names that was uploaded successfully
+        if ( uploaded.length === 0 ){
+          alert("Failed to upload action image, please try again later!");
+          return;
+        }
+        const action = {
+          name: "description",
+          description: description,
+          images: uploaded,
+          categories: ["awareness"]
+        };
+        createAction(action, (result) => {
+          if (result.actionId) {
+            alert("Thank you for doing your 1 thing to fight against racism!\n" + result.actionId);
+          }
+          else {
+            alert("Failed to create action, please try again later!");
+          }
+        }
+        );
+      })
+    }
+    else {
+      const action = {
+        created_by: "Anonymous",
+        name: "description",
+        description: description,
+        categories: ["awareness"]
+      }
+      createAction(action, () => alert("Thank you for doing your 1 thing to fight against racism!"))
+    }
+
+
   }
 
   return (
@@ -37,7 +72,7 @@ function ShareAction() {
       <div className="share-action__preview">
         {images?.map((image, idx) => {
           const url = URL.createObjectURL(image);
-          return <img className="share-action__preview__image" src={url} alt={`share-action-${idx+1}`} key={`image-${idx+1}`} />
+          return <img className="share-action__preview__image" src={url} alt={`share-action-${idx + 1}`} key={`image-${idx + 1}`} />
         })}
       </div>
       <div className="share-action__upload">

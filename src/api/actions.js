@@ -22,6 +22,24 @@ function getAction(actionId, callback) {
     })
 }
 
+function createAction(action, callback) {
+  if (!action) return;
+  return fetch(`${API_HOST}/actions` , {
+      method: 'post',
+      body: JSON.stringify({
+        "action":  action 
+      }),
+      headers: { "Content-Type": "application/json"},
+    })
+    .then((res) => res.json())
+    .then((result) => {
+      callback({"actionId": result.actionId});
+    }, 
+    (error) => {
+      callback(error, true);
+    })
+}
+
 function voteAction(actionId, callback) {
   if (!actionId) return;
   return fetch(`${API_HOST}/actions/${actionId}/vote`, {
@@ -35,4 +53,4 @@ function voteAction(actionId, callback) {
     });
 }
 
-export { getActions, getAction, voteAction };
+export { getActions, getAction, voteAction, createAction };
