@@ -8,7 +8,7 @@ import WhatPeople from './what-people-have-done.svg';
 import WhyShould from './why-should-i-act.svg';
 import './Home.scss';
 import { Link } from 'react-router-dom';
-
+import ShareAction from '../../components/share-action/ShareAction';
 function Home() {
   return (
     <div className="home">
@@ -21,7 +21,7 @@ function Home() {
         <Popup
           trigger={<MButton variant="contained" color="primary">Share 1 thing you did</MButton>}
         >
-          yo
+          <ShareAction/>
         </Popup>
         
       </div>
