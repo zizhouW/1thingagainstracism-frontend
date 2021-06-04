@@ -31,7 +31,7 @@ function ShareAction() {
         };
         createAction(action, (result) => {
           if (result.actionId) {
-            alert("Thank you for doing your 1 thing to fight against racism!\n" + result.actionId);
+            alert("Thank you for doing your 1 thing to fight against racism!\n");
           }
           else {
             alert("Failed to create action, please try again later!");
