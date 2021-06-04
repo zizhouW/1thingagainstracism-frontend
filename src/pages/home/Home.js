@@ -8,7 +8,7 @@ import WhatPeople from './what-people-have-done.svg';
 import WhyShould from './why-should-i-act.svg';
 import './Home.scss';
 import { Link } from 'react-router-dom';
-
+import ShareAction from '../../components/share-action/ShareAction';
 function Home() {
   return (
     <div className="home">
@@ -21,26 +21,26 @@ function Home() {
         <Popup
           trigger={<MButton variant="contained" color="primary">Share 1 thing you did</MButton>}
         >
-          yo
+          <ShareAction/>
         </Popup>
         
       </div>
       
       <div className="action-card-list">
         <ActionCard
-          title="title"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit eiusmod tempor incididunt ut quis nostrud exercitationLorem ipsum dolor sit amet, consectetur adipiscing elit eiusmod tempor incididunt ut quis nostrud exercitationLorem ipsum dolor sit amet, consectetur adipiscing elit eiusmod tempor incididunt ut quis nostrud exercitationLorem ipsum dolor sit amet, consectetur adipiscing elit eiusmod tempor incididunt ut quis nostrud exercitation"
-          handleSupport={() => alert('yo')}
+          title="Support the immediate needs of AAPI groups"
+          description="“It’s listening to the immediately impacted folks — the communities on the ground — and honoring what they’re asking for...”"
+          handleSupport={() => alert('Thank you for your support!')}
         />
         <ActionCard
-          title="title"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit eiusmod tempor incididunt ut quis nostrud exercitation"
-          handleSupport={() => alert('yo')}
+          title="Report the hate crime or incident"
+          description="Hate crimes are underreported. Reporting an incident can help bring greater awareness and the chance a perpetrator will be prosecuted."
+          handleSupport={() => alert('Thank you for your support!')}
         />
         <ActionCard
-          title="title"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit eiusmod tempor incididunt ut quis nostrud exercitation"
-          handleSupport={() => alert('yo')}
+          title="Donate to support Anti-Asian crime victims"
+          description="Go to https://www.gofundme.com/c/act/stop-aapi-hate to support Anti-Asian crime victims."
+          handleSupport={() => alert('Thank you for your support!o')}
         />
       </div>
 
