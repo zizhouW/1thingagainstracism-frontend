@@ -24,7 +24,7 @@ function ActionDetail() {
   };
   useEffect(() => {
     getAction(actionId, getActionCallback);
-  }, []);
+  }, [actionId]);
 
   const redirectToActions = () => {
     history.push('/actions');

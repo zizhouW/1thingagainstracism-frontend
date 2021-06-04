@@ -13,9 +13,9 @@ function Home() {
   return (
     <div className="home">
       <h2>Welcome to 1 Thing I Did Against Racism!</h2>
-      <div className="subheading">Take actions to stop racism.</div>
-      <div className="subheading">We‘re here to help.</div>
-      <div className="subheading">Our mission is to ......</div>
+      <div className="subheading">Explore what others have done, share your actions, and inspire others</div>
+      {/* <div className="subheading">We‘re here to help.</div>
+      <div className="subheading">Our mission is to ......</div> */}
 
       <div className="share-action-popup">
         <Popup
@@ -47,10 +47,10 @@ function Home() {
       <div className="questions">
         <Link className="questions__link" to="/actions"><img src={WhatPeople} alt="What people have done?" /></Link>
         <Link className="questions__link" to="/actions"><img src={WhatCan} alt="What can I help with" /></Link>
-        <Link className="questions__link" to="/actions"><img src={WhyShould} alt="Why should I act" /></Link>
+        <Link className="questions__link" to="/why-act"><img src={WhyShould} alt="Why should I act" /></Link>
       </div>
 
-      <Newsletter handleNewsletterSignup={() => alert('yo')}/>
+      <Newsletter handleNewsletterSignup={() => alert('sign up')}/>
     </div>
   );
 }

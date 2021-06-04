@@ -27,7 +27,7 @@ function ActionListItem({ id, name, description, voteCount, shareLink, images })
     if (isActionVoted(id)) {
       setIsVoted(true);
     }
-  }, []);
+  }, [id]);
 
   const redirectToActionDetail = () => {
     history.push(`/action/${id}`);
@@ -36,9 +36,7 @@ function ActionListItem({ id, name, description, voteCount, shareLink, images })
     <div className="action-list-item">
       <div className="action-list-item__name">{name}</div>
       <div className="action-list-item__description" onClick={redirectToActionDetail}>{description}</div>
-      {images && images?.map((image, idx) => {
-        <img src={image} alt={`image${idx + 1}`} />
-      })}
+      {images && images?.map((image, idx) => <img src={image} alt={`action${idx + 1}`} />)}
       <div className="action-list-item__actionables">
         <div className="action-list-item__actionables__vote" onClick={voteForAction}>
           <img src={isVoted ? HeartFilledSvg : HeartSvg} alt="heart" />{newVoteCount}

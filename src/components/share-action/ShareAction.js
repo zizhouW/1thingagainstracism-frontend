@@ -37,11 +37,11 @@ function ShareAction() {
       <div className="share-action__preview">
         {images?.map((image, idx) => {
           const url = URL.createObjectURL(image);
-          return <img className="share-action__preview__image" src={url} alt={`image-${idx+1}`} key={`image-${idx+1}`} />
+          return <img className="share-action__preview__image" src={url} alt={`share-action-${idx+1}`} key={`image-${idx+1}`} />
         })}
       </div>
       <div className="share-action__upload">
-        <label htmlFor="image-upload"><img src={CameraSvg} alt="upload image" /></label>
+        <label htmlFor="image-upload"><img src={CameraSvg} alt="upload" /></label>
         <input type="file" id="image-upload" name="image-upload" multiple onChange={imagesSelectedHandler} accept="image/*" />
       </div>
       <MButton
