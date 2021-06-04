@@ -69,7 +69,7 @@ function Home() {
         <Link className="questions__link" to="/why-act"><img src={WhyShould} alt="Why should I act" /></Link>
       </div>
 
-      <Newsletter handleNewsletterSignup={() => alert('sign up')}/>
+      <Newsletter handleNewsletterSignup={() => alert('Thank you for signing up')}/>
     </div>
   );
 }
