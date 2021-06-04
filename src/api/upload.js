@@ -1,7 +1,7 @@
 import { API_HOST } from '../constants';
 
 function getSignedUrl(callback) {
-  return fetch(`${API_HOST}/signedurl/POST`)
+  return fetch(`${API_HOST}/signedurl/PUT`)
   .then(res => res.json())
   .then((result) => {
     callback(result);
@@ -12,7 +12,7 @@ function getSignedUrl(callback) {
 
 function uploadFile(url, file, callback) {
   return fetch(url, {
-    method: 'post',
+    method: 'PUT',
     body: file,
   })
   .then(res => res.json())
