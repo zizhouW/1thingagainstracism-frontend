@@ -25,6 +25,12 @@ function uploadFile(url, file, callback) {
   })
 }
 
+function singleUpload(file, callback) {
+  getSignedUrl((result) => {
+    uploadFile(result.signed_url, file, callback);
+  });
+}
+
 function bulkUpload(files, callback) {
   const signedUrls = [];
   const uploaded = []; //list of file name that was uploaded successfully
@@ -40,10 +46,10 @@ function bulkUpload(files, callback) {
     }
 
     Promise.allSettled(uploads).then((result) => {
-      debugger;
+      // debugger;
       callback(uploaded);
     });
   });
 }
 
-export { bulkUpload };
+export { bulkUpload, singleUpload };

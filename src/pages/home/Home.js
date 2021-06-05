@@ -5,7 +5,6 @@ import MButton from '../../components/m-button/MButton';
 import Popup from '../../components/pop-up/Popup';
 import Newsletter from '../../components/newsletter/Newsletter';
 import ShareAction from '../../components/share-action/ShareAction';
-import HomePng from './home.png';
 import WhatCan from './what-can-i-help-with.svg';
 import WhatPeople from './what-people-have-done.svg';
 import WhyShould from './why-should-i-act.svg';

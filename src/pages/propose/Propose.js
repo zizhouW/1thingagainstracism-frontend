@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { NativeSelect, TextField } from '@material-ui/core';
 import DateFnsUtils from '@date-io/date-fns';
+import { singleUpload } from '../../api/upload';
 import {
   MuiPickersUtilsProvider,
   KeyboardTimePicker,
   KeyboardDatePicker,
 } from '@material-ui/pickers';
 import './Propose.scss';
+import MButton from '../../components/m-button/MButton';
 
 function Propose() {
   const [link, setLink] = useState('');
@@ -14,6 +16,19 @@ function Propose() {
   const [customType, setCustomType] = useState('');
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+  const [about, setAbout] = useState('');
+  const [who, setWho] = useState('');
+  const [needs, setNeeds] = useState('');
+  const [image, setImage] = useState(null);
+
+  const imagesSelectedHandler = (e) => {
+    if (e.target.files.length > 1) {
+      alert('Please choose 1 image only');
+      return;
+    }
+    setImage(e.target.files[0]);
+  };
+
   return (
     <div className="propose">
       <h2 className="propose__title">Propose Your Idea</h2>
@@ -46,14 +61,14 @@ function Propose() {
           <option value={4}>Team Projects</option>
           <option value={5}>Other</option>
         </NativeSelect>
-        {type === '5' && (
+        {type === '5' && ( 
           <TextField placeholder="Please specify" value={customType} onChange={(e) => setCustomType(e.target.value)} />
         )}
       </div>
       <div className="propose__section">
         <div className="propose__section__title">Date</div>
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
-          <div>
+          <div className="date-time-picker">
             <KeyboardDatePicker
               margin="normal"
               label="Start date"
@@ -67,7 +82,7 @@ function Propose() {
             />
             <KeyboardTimePicker
               margin="normal"
-              label="Time"
+              label="Start time"
               value={startDate}
               onChange={(date) => setStartDate(date)}
               KeyboardButtonProps={{
@@ -75,7 +90,7 @@ function Propose() {
               }}
             />
           </div>
-          <div>
+          <div className="date-time-picker">
             <KeyboardDatePicker
               margin="normal"
               label="End date"
@@ -89,7 +104,7 @@ function Propose() {
             />
             <KeyboardTimePicker
               margin="normal"
-              label="Time"
+              label="End time"
               value={endDate}
               onChange={(date) => setEndDate(date)}
               KeyboardButtonProps={{
@@ -99,6 +114,49 @@ function Propose() {
           </div>
         </MuiPickersUtilsProvider>
       </div>
+      <div className="propose__section">
+        <div className="propose__section__title">
+          About<span className="propose__section__title__required">*</span>
+        </div>
+        <TextField
+          placeholder="What is your idea about?"
+          multiline
+          variant="outlined"
+          rows={4}
+          value={about}
+          onChange={(e) => setAbout(e.target.value.slice(0, 500))}
+        />
+      </div>
+      <div className="propose__section">
+        <div className="propose__section__title">
+          Who can help<span className="propose__section__title__required">*</span>
+        </div>
+        <TextField
+          variant="outlined"
+          value={who}
+          onChange={(e) => setWho(e.target.value.slice(0, 500))}
+        />
+      </div>
+      <div className="propose__section">
+        <div className="propose__section__title">
+          What we need<span className="propose__section__title__required">*</span>
+        </div>
+        <div>What kinds of talent do you need to take this action?</div>
+        <TextField
+          variant="outlined"
+          value={needs}
+          onChange={(e) => setNeeds(e.target.value.slice(0, 500))}
+        />
+      </div>
+      <div className="propose__section">
+        <div className="propose__section__title">Upload a picture</div>
+        {image && (
+          <img className="project-preview-image" src={URL.createObjectURL(image)} alt="project-preview" />
+        )}
+        <label htmlFor="project-image-upload"><div className="fake-button">Select</div></label>
+        <input type="file" id="project-image-upload" name="image-upload" multiple onChange={imagesSelectedHandler} accept="image/*" />
+      </div>
+      <MButton className="propose__share" variant="contained" color="primary">Share</MButton>
     </div>
   );
 }
