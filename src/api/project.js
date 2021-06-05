@@ -33,7 +33,7 @@ function createProject(project, callback) {
     })
     .then((res) => res.json())
     .then((result) => {
-      callback({"projectId": result.projectId});
+      callback({"projectId": result.project_id});
     }, 
     (error) => {
       callback(error, true);
