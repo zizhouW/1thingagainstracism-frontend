@@ -25,11 +25,11 @@ function uploadFile(url, file, callback) {
   })
 }
 
-function singleUpload(file, callback) {
-  getSignedUrl((result) => {
-    uploadFile(result.signed_url, file, callback);
-  });
-}
+// function singleUpload(file, callback) {
+//   getSignedUrl((result) => {
+//     uploadFile(result.signed_url, file, callback);
+//   });
+// }
 
 function bulkUpload(files, callback) {
   const signedUrls = [];
@@ -52,4 +52,4 @@ function bulkUpload(files, callback) {
   });
 }
 
-export { bulkUpload, singleUpload };
+export { bulkUpload };

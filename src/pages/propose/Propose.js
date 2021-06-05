@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { NativeSelect, TextField } from '@material-ui/core';
 import DateFnsUtils from '@date-io/date-fns';
-import { singleUpload } from '../../api/upload';
+import { bulkUpload } from '../../api/upload';
+import {createProject} from '../../api/project';
 import {
   MuiPickersUtilsProvider,
   KeyboardTimePicker,
@@ -11,6 +12,7 @@ import './Propose.scss';
 import MButton from '../../components/m-button/MButton';
 
 function Propose() {
+  const [name, setName] = useState('');
   const [link, setLink] = useState('');
   const [type, setType] = useState(1);
   const [customType, setCustomType] = useState('');
@@ -28,6 +30,42 @@ function Propose() {
     }
     setImage(e.target.files[0]);
   };
+  const callCreateProject = (imageIds) => {
+    const project = {
+      name: name,
+      start_time: startDate,
+      end_time: endDate,
+      description: about,
+      who_can_help: who,
+      type: {
+        type_id: type,
+        customType: customType
+      },
+      needs: needs,
+      images: imageIds,
+    };
+    createProject(project, (result) => {
+      if (result.projectId) {
+        alert("Thank you for proposing your idea!\n");
+      } else {
+        alert("Failed to propose your project, please try again later!");
+      }
+    });
+  };
+  const handleSubmit = () => {
+    if (image) {
+      bulkUpload([image], (imageIds) => {
+        //imageIds has list of image ids that was uploaded successfully
+        if (imageIds.length === 0) {
+          alert("Failed to upload project image, please try again later!");
+          return;
+        }
+        callCreateProject(imageIds)
+      });
+      return;
+    }
+    callCreateProject([]);
+  }
 
   return (
     <div className="propose">
@@ -38,6 +76,16 @@ function Propose() {
       </div>
       <div className="propose__section">
         <div className="propose__section__title">
+          Name<span className="propose__section__title__required">*</span>
+        </div>
+        <TextField
+          placeholder="Name of your idea"
+          value={name}
+          onChange={(e) => setName(e.target.value.slice(0, 128))}
+        />
+      </div>
+      <div className="propose__section">
+        <div className="propose__section__title">
           Location<span className="propose__section__title__required">*</span>
         </div>
         <NativeSelect
@@ -45,7 +93,7 @@ function Propose() {
         >
           <option value={1}>Online</option>
         </NativeSelect>
-        <TextField placeholder="Link" value={link} onChange={(e) => setLink(e.target.value)} />
+        <TextField placeholder="website" value={link} onChange={(e) => setLink(e.target.value)} />
       </div>
       <div className="propose__section">
         <div className="propose__section__title">
@@ -141,7 +189,7 @@ function Propose() {
         <div className="propose__section__title">
           What we need<span className="propose__section__title__required">*</span>
         </div>
-        <div>What kinds of talent do you need to take this action?</div>
+        <div>What kinds of talent do you need to take this project?</div>
         <TextField
           variant="outlined"
           value={needs}
@@ -151,12 +199,12 @@ function Propose() {
       <div className="propose__section">
         <div className="propose__section__title">Upload a picture</div>
         {image && (
-          <img className="project-preview-image" src={URL.createObjectURL(image)} alt="project-preview" />
+          <img className="project-preview-image" src={URL.createObjectURL(image)} alt="project-preview" style={{width:'80%'}}/>
         )}
         <label htmlFor="project-image-upload"><div className="fake-button">Select</div></label>
         <input type="file" id="project-image-upload" name="image-upload" multiple onChange={imagesSelectedHandler} accept="image/*" />
       </div>
-      <MButton className="propose__share" variant="contained" color="primary">Share</MButton>
+      <MButton className="propose__share" variant="contained" color="primary" onClick={handleSubmit}>Share</MButton>
     </div>
   );
 }
