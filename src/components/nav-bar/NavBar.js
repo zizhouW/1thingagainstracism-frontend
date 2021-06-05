@@ -31,7 +31,7 @@ function NavBar({ children }) {
         {isShowMenu && (
           <div className="navbar__directory">
             <Link to="/actions" className="navbar__directory__link" onClick={closeMenu}><h2>See others actions</h2></Link>
-            <Link to="/" className="navbar__directory__link" onClick={closeMenu}><h2>Join ongoing projects</h2></Link>
+            <Link to="/projects" className="navbar__directory__link" onClick={closeMenu}><h2>Join ongoing projects</h2></Link>
             <Link to="/propose" className="navbar__directory__link" onClick={closeMenu}><h2>Propose your idea</h2></Link>
             <Link to="/" className="navbar__directory__link" onClick={closeMenu}><h2>Share 1 thing you did</h2></Link>
             <Link to="/why-act" className="navbar__directory__link" onClick={closeMenu}><h2>Why you should act</h2></Link>
