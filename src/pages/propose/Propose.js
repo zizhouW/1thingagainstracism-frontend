@@ -12,6 +12,7 @@ import './Propose.scss';
 import MButton from '../../components/m-button/MButton';
 
 function Propose() {
+  const [name, setName] = useState('');
   const [link, setLink] = useState('');
   const [type, setType] = useState(1);
   const [customType, setCustomType] = useState('');
@@ -31,7 +32,7 @@ function Propose() {
   };
   const callCreateProject = (imageIds) => {
     const project = {
-      name: "description",
+      name: name,
       start_time: startDate,
       end_time: endDate,
       description: about,
@@ -75,6 +76,16 @@ function Propose() {
       </div>
       <div className="propose__section">
         <div className="propose__section__title">
+          Name<span className="propose__section__title__required">*</span>
+        </div>
+        <TextField
+          placeholder="Name of your idea"
+          value={name}
+          onChange={(e) => setName(e.target.value.slice(0, 128))}
+        />
+      </div>
+      <div className="propose__section">
+        <div className="propose__section__title">
           Location<span className="propose__section__title__required">*</span>
         </div>
         <NativeSelect
@@ -82,7 +93,7 @@ function Propose() {
         >
           <option value={1}>Online</option>
         </NativeSelect>
-        <TextField placeholder="Link" value={link} onChange={(e) => setLink(e.target.value)} />
+        <TextField placeholder="website" value={link} onChange={(e) => setLink(e.target.value)} />
       </div>
       <div className="propose__section">
         <div className="propose__section__title">
