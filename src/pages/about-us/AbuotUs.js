@@ -7,7 +7,7 @@ function AboutUs() {
     <div className="about">
       <h2 className="about__title">About us</h2>
       <div className="about__subtitle">
-        One Thing I did to Fight Racism is a platform for people to share what they have done to fight racism,
+        One Thing I Can Do to Fight Racism is a platform for people to share what they have done to fight racism,
         get inspired by others’ actions and together make an impact for a better future.</div>
       <div className="about__banner" />
       <h2 className="about__title">Our mission</h2>

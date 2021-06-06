@@ -26,6 +26,11 @@
     }
   }
 
+  &__preview > img:not(:last-child) {
+    margin-right: 12px;
+    max-height: 104px;
+  }
+
   &__upload {
     margin-bottom: 14px;
 

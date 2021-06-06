@@ -42,7 +42,7 @@ function createProject(project, callback) {
 
 function voteProject(projectId, callback) {
   if (!projectId) return;
-  return fetch(`${API_HOST}/projects/${projectId}/vote`, {
+  return fetch(`${API_HOST}/projects/${projectId}/signup`, {
     method: 'post',
   })
     .then(res => res.json())

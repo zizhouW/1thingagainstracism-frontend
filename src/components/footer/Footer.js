@@ -13,7 +13,7 @@ import './Footer.scss';
 function Footer({ link }) {
   return (
     <div className="footer">
-      <img className="footer__logo" src={LogoSvg} alt="1 thing I did to fight racism" />
+      <img className="footer__logo" src={LogoSvg} alt="1 thing I can do to fight racism" />
       <div className="footer__title">Share & Fight Together</div>
       <div className="footer__share">
         <TwitterShareButton url={link}>
@@ -27,7 +27,7 @@ function Footer({ link }) {
         </FacebookShareButton>
       </div>
       <div className="footer__copyright">
-        Copyright ©2021 1 Thing I Did To Fight Racism
+        Copyright ©2021 1 Thing I Can Do To Fight Racism
       </div>
     </div>
   );

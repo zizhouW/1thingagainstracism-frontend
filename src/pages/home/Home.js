@@ -1,17 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import ActionCard from '../../components/action-card/ActionCard';
 import MButton from '../../components/m-button/MButton';
 import Popup from '../../components/pop-up/Popup';
 import Newsletter from '../../components/newsletter/Newsletter';
 import ShareAction from '../../components/share-action/ShareAction';
-import WhatCan from './what-can-i-help-with.svg';
-import WhatPeople from './what-people-have-done.svg';
-import WhyShould from './why-should-i-act.svg';
 import './Home.scss';
 
 
 function Home() {
+  const history = useHistory();
+  const location = useLocation();
+  const query = new URLSearchParams(location.search);
+
   return (
     <div className="home">
       <div className="home__banner">
@@ -22,10 +23,10 @@ function Home() {
           <Popup
             trigger={<MButton variant="contained" color="primary">Share 1 thing you did</MButton>}
           >
-            <ShareAction />
+            <ShareAction submitCallback={() => history.push('/inspirations')}/>
           </Popup>
-          
         </div>
+        <Link to="./inspirations"><MButton variant="outlined" color="primary">Get Inspirations</MButton></Link>
       </div>
 
       <h3 className="home__section-title">Instant actions</h3>
@@ -61,14 +62,7 @@ function Home() {
           handleSupport={() => alert('Thank you for your support!')}
         />
       </div>
-
-      <div className="questions">
-        <Link className="questions__link" to="/actions"><img src={WhatPeople} alt="What people have done?" /></Link>
-        <Link className="questions__link" to="/actions"><img src={WhatCan} alt="What can I help with" /></Link>
-        <Link className="questions__link" to="/why-act"><img src={WhyShould} alt="Why should I act" /></Link>
-      </div>
-
-      <Newsletter handleNewsletterSignup={() => alert('Thank you for signing up')}/>
+      <Newsletter handleNewsletterSignup={() => alert('Thank you for signing up')} autoFocus={query.get('bottom') === 'true'} />
     </div>
   );
 }

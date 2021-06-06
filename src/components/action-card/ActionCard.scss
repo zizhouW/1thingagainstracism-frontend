@@ -15,31 +15,8 @@
     margin-right: 8px;
   }
 
-  &:first-child > .action-card__title {
-    background: #C4C4C4;
-  }
-
-  &:nth-child(2) > .action-card__title {
-    background: #D5D5D5;
-  }
-
-  &:nth-child(3) > .action-card__title {
-    background: #FBEBB3;
-  }
-
-  &:nth-child(4) > .action-card__title {
-    background: #C5FBB3;
-  }
-
-  &:nth-child(5) > .action-card__title {
-    background: #B3B6FB;
-  }
-
-  &:last-child > .action-card__title {
-    background: #FBC8B3;
-  }
-
   &__title {
+    background: rgba(226, 150, 62, 0.3);
     font-weight: bold;
     margin-bottom: 8px;
     margin: -14px -14px 0;
@@ -58,7 +35,7 @@
 
   &__support {
     position: absolute;
-    bottom: 8px;
+    bottom: 16px;
     left: 14px;
     font-weight: 500;
     font-size: 12px;

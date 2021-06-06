@@ -15,7 +15,7 @@ function WhyAct() {
     <div className="why-act">
       <h2 className="why-act__title">Why should I act?</h2>
       <div className="why-act__subtitle">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit eiusmod tempor incididunt ut quis nostrud exercitation
+        Racism is a deadly virus and silence is not an option. See what is happening in the society now and take action.
       </div>
       <img className="why-act__crime-tracker" src={CrimePng} alt="crime-tracker" onClick={openCrimeTracker} />
       <h2 className="why-act__title">Victim stories</h2>

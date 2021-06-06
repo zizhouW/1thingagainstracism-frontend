@@ -20,7 +20,7 @@ function NavBar({ children }) {
     <div className="navbar">
       <Router history={history}>
         <div className="nav">
-          <Link to="/" onClick={closeMenu}><img className="nav__logo" src={LogoSvg} alt="1 THING I DID TO FIGHT RACISM" /></Link>
+          <Link to="/" onClick={closeMenu}><img className="nav__logo" src={LogoSvg} alt="1 THING I CAN DO TO FIGHT RACISM" /></Link>
           <img className="nav__menu" src={isShowMenu ? CloseSvg : MenuSvg} alt="menu" onClick={() => setIsShowMenu(!isShowMenu)} />
         </div>
         {!isShowMenu && (
@@ -30,13 +30,12 @@ function NavBar({ children }) {
         )}
         {isShowMenu && (
           <div className="navbar__directory">
-            <Link to="/actions" className="navbar__directory__link" onClick={closeMenu}><h2>See others actions</h2></Link>
-            <Link to="/" className="navbar__directory__link" onClick={closeMenu}><h2>Join ongoing projects</h2></Link>
-            <Link to="/propose" className="navbar__directory__link" onClick={closeMenu}><h2>Propose your idea</h2></Link>
             <Link to="/" className="navbar__directory__link" onClick={closeMenu}><h2>Share 1 thing you did</h2></Link>
-            <Link to="/why-act" className="navbar__directory__link" onClick={closeMenu}><h2>Why you should act</h2></Link>
-            <Link to="/about" className="navbar__directory__link" onClick={closeMenu}><div>About</div></Link>
-            <Link to="/about" className="navbar__directory__link" onClick={closeMenu}><div>Newsletter</div></Link>
+            <Link to="/inspirations" className="navbar__directory__link" onClick={closeMenu}><h2>Get inspirations</h2></Link>
+            <Link to="/propose" className="navbar__directory__link" onClick={closeMenu}><h2>Propose your idea</h2></Link>
+            <Link to="/about" className="navbar__directory__link navbar__directory__link--gap" onClick={closeMenu}><div>About</div></Link>
+            <Link to="/?bottom=true" className="navbar__directory__link" onClick={closeMenu}><div>Newsletter</div></Link>
+            <Link to="/why-act" className="navbar__directory__link" onClick={closeMenu}><div>Why you should act</div></Link>
           </div>
         )}
         <Footer link="https://www.1-thing.org/" />
