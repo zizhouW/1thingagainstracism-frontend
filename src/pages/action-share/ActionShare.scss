@@ -1,0 +1,15 @@
+.action-share {
+  padding: 0 8px;
+  height: calc(100vh - 250px);
+
+  &__back {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    cursor: pointer;
+  }
+
+  .share-action {
+    height: 100%;
+  }
+}

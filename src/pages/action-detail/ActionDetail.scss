@@ -1,6 +1,13 @@
 .action-detail {
   padding: 0 16px;
 
+  &__back {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    cursor: pointer;
+  }
+
   .m-button {
     margin-bottom: 8px;
   }

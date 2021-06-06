@@ -15,7 +15,7 @@ function getProject(projectId, callback) {
   return fetch(`${API_HOST}/projects/${projectId}`)
     .then((res) => res.json())
     .then((result) => {
-      callback(result);
+      callback(result.project);
     }, 
     (error) => {
       callback(error, true);

@@ -1,6 +1,8 @@
 @import '../../styles/mixins';
 
 .navbar {
+  overflow: auto;
+
   .nav {
     background-color: #E2963E;
     padding: 9px 16px;

@@ -32,7 +32,7 @@ function ShareAction({ submitCallback }) {
         createAction(action, (result) => {
           if (result.actionId) {
             alert("Thank you for doing your 1 thing to fight against racism!\n");
-            submitCallback && submitCallback();
+            submitCallback && submitCallback(result.actionId);
           }
           else {
             alert("Failed to create action, please try again later!");

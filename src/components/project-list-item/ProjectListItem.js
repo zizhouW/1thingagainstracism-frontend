@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { IMAGE_BASE } from '../../constants';
 import { isProjectVoted, setVotedProjects } from '../../util/localStorage';
 import { voteProject } from '../../api/projects';
@@ -9,6 +10,7 @@ import './ProjectListItem.scss';
 function ProjectListItem({ id, title, description, image, voteCount }) {
   const [isVoted, setIsVoted] = useState(false);
   const [newVoteCount, setNewVoteCount] = useState(voteCount);
+  const history = useHistory();
   const voteProjectsCallback = (projectId, newCount, isError) => {
     if (!isError) {
       setVotedProjects(projectId);
@@ -28,7 +30,7 @@ function ProjectListItem({ id, title, description, image, voteCount }) {
   }, [id]);
   return (
     <div className="project-list-item">
-      <div className="project-list-item__info">
+      <div className="project-list-item__info" onClick={() => history.push(`/projects/${id}`)}>
         {image ? (
           <div className="project-list-item__info__image"><img src={`${IMAGE_BASE}/${image}`} alt="project" /></div>
         ) : (
