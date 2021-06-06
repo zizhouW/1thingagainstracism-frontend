@@ -2,9 +2,8 @@ import { Switch, Route } from "react-router-dom";
 import AboutUs from "./pages/about-us/AbuotUs";
 import Home from "./pages/home/Home";
 import NavBar from './components/nav-bar/NavBar';
-import AllActions from "./pages/all-actions/AllActions";
+import GetInspirations from "./pages/get-inspirations/GetInspirations";
 import ActionDetail from "./pages/action-detail/ActionDetail";
-import Projects from "./pages/projects/Projects";
 import Propose from "./pages/propose/Propose";
 import WhyAct from "./pages/why-act/WhyAct";
 import './App.scss';
@@ -17,14 +16,11 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/actions">
-            <AllActions />
+          <Route path="/inspirations">
+            <GetInspirations />
           </Route>
-          <Route path="/action/:actionId">
+          <Route path="/actions/:actionId">
             <ActionDetail />
-          </Route>
-          <Route path="/projects">
-            <Projects />
           </Route>
           <Route path="/propose">
             <Propose />

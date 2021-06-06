@@ -33,14 +33,13 @@ function AllActions() {
 
   return (
     <div className="all-actions">
-      <h2>What people have done?</h2>
       <div className="action-list">
         {actions?.map((action, idx) => {
           return (
             <ActionListItem
               key={action?.id || `action-${idx}`}
               id={action?.id || ''}
-              name={action?.name || ''}
+              name={action?.created_by || 'Anonymous'}
               description={action?.description || ''}
               voteCount={action?.vote_count || 0}
               images={action?.images || []}

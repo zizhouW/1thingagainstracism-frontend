@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { NativeSelect, TextField } from '@material-ui/core';
 import DateFnsUtils from '@date-io/date-fns';
 import { bulkUpload } from '../../api/upload';
-import {createProject} from '../../api/project';
+import { createProject } from '../../api/projects';
 import {
   MuiPickersUtilsProvider,
   KeyboardTimePicker,

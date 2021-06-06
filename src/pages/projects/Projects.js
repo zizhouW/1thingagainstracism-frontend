@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getProjects } from '../../api/projects';
 import MButton from '../../components/m-button/MButton';
+import ProjectListItem from '../../components/project-list-item/ProjectListItem';
 import './Projects.scss';
 
 function Projects() {
@@ -30,10 +31,17 @@ function Projects() {
 
   return (
     <div className="projects">
-      <h2>How can I help?</h2>
       <div className="projects-list">
         {projects?.map((project) => {
-          return project.name;
+          return (
+            <ProjectListItem
+              id={project?.id || ''}
+              title={project?.name || ''}
+              description={project?.description || ''}
+              image={project?.images && project?.images[0]}
+              voteCount={project?.signups || 0}
+            />
+          );
         })}
         {isError ? 'Error getting projects': ''}
         {isLoading ? 'Loading...' : (

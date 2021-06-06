@@ -1,7 +1,7 @@
 import { API_HOST } from '../constants';
 
 function getProjects(lastProjectId, callback) {
-  return fetch(`${API_HOST}/project?orderBy=time&limit=5${lastProjectId ? `&offset=${lastProjectId}` : ''}`)
+  return fetch(`${API_HOST}/projects?orderBy=time&limit=5${lastProjectId ? `&offset=${lastProjectId}` : ''}`)
     .then(res => res.json())
     .then((result) => {
       callback(result?.projects);
@@ -10,47 +10,47 @@ function getProjects(lastProjectId, callback) {
     })
 }
 
-// function getAction(actionId, callback) {
-//   if (!actionId) return;
-//   return fetch(`${API_HOST}/actions/${actionId}`)
-//     .then((res) => res.json())
-//     .then((result) => {
-//       callback(result);
-//     }, 
-//     (error) => {
-//       callback(error, true);
-//     })
-// }
+function getProject(projectId, callback) {
+  if (!projectId) return;
+  return fetch(`${API_HOST}/projects/${projectId}`)
+    .then((res) => res.json())
+    .then((result) => {
+      callback(result);
+    }, 
+    (error) => {
+      callback(error, true);
+    })
+}
 
-// function createAction(action, callback) {
-//   if (!action) return;
-//   return fetch(`${API_HOST}/actions` , {
-//       method: 'post',
-//       body: JSON.stringify({
-//         "action":  action 
-//       }),
-//       headers: { "Content-Type": "application/json"},
-//     })
-//     .then((res) => res.json())
-//     .then((result) => {
-//       callback({"actionId": result.actionId});
-//     }, 
-//     (error) => {
-//       callback(error, true);
-//     })
-// }
+function createProject(project, callback) {
+  if (!project) return;
+  return fetch(`${API_HOST}/projects` , {
+      method: 'post',
+      body: JSON.stringify({
+        "project":  project 
+      }),
+      headers: { "Content-Type": "application/json"},
+    })
+    .then((res) => res.json())
+    .then((result) => {
+      callback({"projectId": result.projectId});
+    }, 
+    (error) => {
+      callback(error, true);
+    })
+}
 
-// function voteAction(actionId, callback) {
-//   if (!actionId) return;
-//   return fetch(`${API_HOST}/actions/${actionId}/vote`, {
-//     method: 'post',
-//   })
-//     .then(res => res.json())
-//     .then((result) => {
-//       callback(actionId, result.vote_count);
-//     }, () => {
-//       callback(actionId, undefined, true);
-//     });
-// }
+function voteProject(projectId, callback) {
+  if (!projectId) return;
+  return fetch(`${API_HOST}/projects/${projectId}/signup`, {
+    method: 'post',
+  })
+    .then(res => res.json())
+    .then((result) => {
+      callback(projectId, result.vote_count);
+    }, () => {
+      callback(projectId, undefined, true);
+    });
+}
 
-export { getProjects };
+export { getProjects, getProject, voteProject, createProject };

@@ -1,0 +1,31 @@
+.get-inspirations {
+  padding: 0 16px;
+
+  h2 {
+    margin-bottom: 12px;
+  }
+
+  .MuiTabs-root {
+    margin-bottom: 20px;
+
+    &, .MuiButtonBase-root, .MuiTab-wrapper {
+      min-height: 32px;
+    }
+
+    .MuiButtonBase-root.MuiTab-root {
+      padding: 0;
+
+      &.MuiTab-textColorPrimary.Mui-selected {
+        color: #3864F9;
+      }
+      .MuiTab-wrapper {
+        text-transform: none;
+        font-weight: bold;
+      }
+    }
+
+    .PrivateTabIndicator-colorPrimary-2 {
+      background-color: #3864F9;
+    }
+  }
+}

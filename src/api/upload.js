@@ -46,7 +46,6 @@ function bulkUpload(files, callback) {
     }
 
     Promise.allSettled(uploads).then((result) => {
-      // debugger;
       callback(uploaded);
     });
   });

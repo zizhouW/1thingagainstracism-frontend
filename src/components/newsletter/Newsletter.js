@@ -5,7 +5,7 @@ import './Newsletter.scss';
 
 const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-function Newsletter({ handleNewsletterSignup }) {
+function Newsletter({ handleNewsletterSignup, autoFocus }) {
   const [email, setEmail] = useState('');
   const [isEmailValid, setIsEmailValid] = useState(true);
 
@@ -13,6 +13,7 @@ function Newsletter({ handleNewsletterSignup }) {
     if (!re.test(email)) {
       setIsEmailValid(false);
     } else {
+      setEmail('');
       handleNewsletterSignup();
     }
   };
@@ -21,7 +22,7 @@ function Newsletter({ handleNewsletterSignup }) {
     <div className="newsletter">
       <h2 className="newsletter__title">Sign up for the latest news</h2>
       <div className="newsletter__subtitle">
-        Get exclusive suggestions and latest updates from 1 Thing I Did to Against Racism by signing up for our weekly newsletter.
+        Get exclusive suggestions and latest updates from 1 Thing I Can Do to Against Racism by signing up for our weekly newsletter.
       </div>
       <TextField
         className="newsletter__email"
@@ -31,6 +32,7 @@ function Newsletter({ handleNewsletterSignup }) {
           setIsEmailValid(true);
           setEmail(event.target.value)
         }}
+        autoFocus={autoFocus}
         value={email}
         error={!isEmailValid}
         helperText={isEmailValid ? '' : 'Invalid email, please enter again'}

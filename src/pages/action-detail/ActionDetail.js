@@ -27,7 +27,7 @@ function ActionDetail() {
   }, [actionId]);
 
   const redirectToActions = () => {
-    history.push('/actions');
+    history.push('/inspirations');
   };
 
   return (

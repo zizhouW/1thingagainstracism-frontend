@@ -1,0 +1,56 @@
+.project-list-item {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #C4C4C4;
+  padding-bottom: 16px;
+
+  &__info {
+    display: flex;
+    margin-bottom: 16px;
+
+    &__image {
+      width: 104px;
+      height: 104px;
+      overflow: hidden;
+
+      img {
+        width: 104px;
+      }
+    }
+
+    &__placeholder-image {
+      width: 104px;
+      height: 104px;
+      background-color: #C4C4C4;
+    }
+
+    &__text {
+      display: block;
+      margin-left: 12px;
+
+      &__title, &__description {
+        font-size: 14px;
+        line-height: 16px;
+      }
+
+      &__title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-bottom: 8px;
+        font-weight: bold;
+      }
+
+      &__description {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+      }
+    }
+  }
+
+  &__support > img {
+    margin-right: 6px;
+  }
+}
