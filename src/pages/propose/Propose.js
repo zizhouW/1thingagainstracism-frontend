@@ -189,7 +189,7 @@ function Propose() {
         <div className="propose__section__title">
           What we need<span className="propose__section__title__required">*</span>
         </div>
-        <div>What kinds of talent do you need to take this project?</div>
+        <div className="propose__section__description">What kinds of talent do you need to take this project?</div>
         <TextField
           variant="outlined"
           value={needs}
@@ -201,10 +201,10 @@ function Propose() {
         {image && (
           <img className="project-preview-image" src={URL.createObjectURL(image)} alt="project-preview" style={{width:'80%'}}/>
         )}
-        <label htmlFor="project-image-upload"><div className="fake-button">Select</div></label>
+        <label htmlFor="project-image-upload"><div className="fake-button">{image ? 'Reselect' : 'Select'} image</div></label>
         <input type="file" id="project-image-upload" name="image-upload" multiple onChange={imagesSelectedHandler} accept="image/*" />
       </div>
-      <MButton className="propose__share" variant="contained" color="primary" onClick={handleSubmit}>Share</MButton>
+      <div className="propose__submit"><MButton className="propose__share" variant="contained" color="primary" onClick={handleSubmit}>Share</MButton></div>
     </div>
   );
 }
