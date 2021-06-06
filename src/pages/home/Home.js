@@ -2,9 +2,7 @@ import React from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import ActionCard from '../../components/action-card/ActionCard';
 import MButton from '../../components/m-button/MButton';
-import Popup from '../../components/pop-up/Popup';
 import Newsletter from '../../components/newsletter/Newsletter';
-import ShareAction from '../../components/share-action/ShareAction';
 import './Home.scss';
 
 
@@ -20,11 +18,7 @@ function Home() {
         <div className="home__banner__title2"><span className="title2-color">I CAN DO TO </span>FIGHT RACISM</div>
         <div className="home__banner__subtitle">A platform for all communities to act, share<br/>and get inspired towards fighting racism</div>
         <div className="share-action-popup">
-          <Popup
-            trigger={<MButton variant="contained" color="primary">Share 1 thing you did</MButton>}
-          >
-            <ShareAction submitCallback={() => history.push('/inspirations')}/>
-          </Popup>
+          <MButton variant="contained" color="primary" onClick={() => history.push('/share-action')}>Share 1 thing you did</MButton>
         </div>
         <Link to="./inspirations"><MButton variant="outlined" color="primary">Get Inspirations</MButton></Link>
       </div>
@@ -62,7 +56,7 @@ function Home() {
           handleSupport={() => alert('Thank you for your support!')}
         />
       </div>
-      <Newsletter handleNewsletterSignup={() => alert('Thank you for signing up')} autoFocus={query.get('bottom') === 'true'} />
+      <Newsletter handleNewsletterSignup={() => alert('Thank you for signing up')} autoFocus={query.get('newsletter') === 'true'} />
     </div>
   );
 }

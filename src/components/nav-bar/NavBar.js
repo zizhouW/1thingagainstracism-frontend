@@ -30,11 +30,11 @@ function NavBar({ children }) {
         )}
         {isShowMenu && (
           <div className="navbar__directory">
-            <Link to="/" className="navbar__directory__link" onClick={closeMenu}><h2>Share 1 thing you did</h2></Link>
+            <Link to="/share-action" className="navbar__directory__link" onClick={closeMenu}><h2>Share 1 thing you did</h2></Link>
             <Link to="/inspirations" className="navbar__directory__link" onClick={closeMenu}><h2>Get inspirations</h2></Link>
             <Link to="/propose" className="navbar__directory__link" onClick={closeMenu}><h2>Propose your idea</h2></Link>
             <Link to="/about" className="navbar__directory__link navbar__directory__link--gap" onClick={closeMenu}><div>About</div></Link>
-            <Link to="/?bottom=true" className="navbar__directory__link" onClick={closeMenu}><div>Newsletter</div></Link>
+            <Link to="/?newsletter=true" className="navbar__directory__link" onClick={closeMenu}><div>Newsletter</div></Link>
             <Link to="/why-act" className="navbar__directory__link" onClick={closeMenu}><div>Why you should act</div></Link>
           </div>
         )}

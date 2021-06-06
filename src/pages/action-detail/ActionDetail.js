@@ -6,6 +6,7 @@ import Loading from '../../components/loading/Loading';
 import MButton from '../../components/m-button/MButton';
 import ShareAction from '../../components/share-action/ShareAction';
 import { DOMAIN } from '../../constants';
+import BackSvg from './back.svg';
 import './ActionDetail.scss';
 
 function ActionDetail() {
@@ -31,8 +32,18 @@ function ActionDetail() {
     history.push('/inspirations');
   };
 
+  const redirectToAction = (actionId) => {
+    history.push(`/actions/${actionId}`);
+  };
+
   return (
     <div className="action-detail">
+      <img
+        className="project-detail__back"
+        src={BackSvg}
+        alt="back"
+        onClick={() => history.push('/inspirations')}
+      />
       <h2>What people have done?</h2>
       {isLoading ? <Loading /> : (
         isError ? 'Oops... there is an error. Please try again.' : (
@@ -48,7 +59,7 @@ function ActionDetail() {
       <MButton color="primary" onClick={redirectToActions}>
         See what other people have done
       </MButton>
-      <ShareAction submitCallback={redirectToActions} />
+      <ShareAction submitCallback={redirectToAction} />
     </div>
   );
 }

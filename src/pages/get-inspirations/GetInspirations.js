@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Tab, Tabs } from '@material-ui/core';
 import AllActions from "../all-actions/AllActions";
 import Projects from "../projects/Projects";
@@ -12,7 +13,10 @@ function a11yProps(index) {
 }
 
 function GetInspirations() {
-  const [tabValue, setTabValue] = useState(0);
+  const location = useLocation();
+  const query = new URLSearchParams(location.search);
+
+  const [tabValue, setTabValue] = useState(query.get('tab') === 'projects' ? 1 : 0);
   return (
     <div className="get-inspirations">
       <h2>Get Inspirations</h2>
