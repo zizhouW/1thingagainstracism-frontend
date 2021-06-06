@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import ActionCard from '../../components/action-card/ActionCard';
 import MButton from '../../components/m-button/MButton';
 import Popup from '../../components/pop-up/Popup';
@@ -9,6 +9,7 @@ import './Home.scss';
 
 
 function Home() {
+  const history = useHistory();
   const location = useLocation();
   const query = new URLSearchParams(location.search);
 
@@ -22,7 +23,7 @@ function Home() {
           <Popup
             trigger={<MButton variant="contained" color="primary">Share 1 thing you did</MButton>}
           >
-            <ShareAction />
+            <ShareAction submitCallback={() => history.push('/inspirations')}/>
           </Popup>
         </div>
         <Link to="./inspirations"><MButton variant="outlined" color="primary">Get Inspirations</MButton></Link>

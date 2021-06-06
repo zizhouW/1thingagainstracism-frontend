@@ -34,6 +34,11 @@ function uploadFile(url, file, callback) {
 function bulkUpload(files, callback) {
   const signedUrls = [];
   const uploaded = []; //list of file name that was uploaded successfully
+
+  if (!files) {
+    callback([]);
+    return;
+  }
   
   Promise.allSettled(files.map(() => getSignedUrl((result) => { signedUrls.push(result) }))).then(() => {
     const uploads = [];

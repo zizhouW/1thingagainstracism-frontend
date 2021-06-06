@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { getAction } from '../../api/actions';
 import ActionListItem from '../../components/action-list-item/ActionListItem';
+import Loading from '../../components/loading/Loading';
 import MButton from '../../components/m-button/MButton';
 import ShareAction from '../../components/share-action/ShareAction';
 import { DOMAIN } from '../../constants';
@@ -33,7 +34,7 @@ function ActionDetail() {
   return (
     <div className="action-detail">
       <h2>What people have done?</h2>
-      {isLoading ? 'Loading...' : (
+      {isLoading ? <Loading /> : (
         isError ? 'Oops... there is an error. Please try again.' : (
         <ActionListItem
           id={actionId || ''}
@@ -47,7 +48,7 @@ function ActionDetail() {
       <MButton color="primary" onClick={redirectToActions}>
         See what other people have done
       </MButton>
-      <ShareAction />
+      <ShareAction submitCallback={redirectToActions} />
     </div>
   );
 }

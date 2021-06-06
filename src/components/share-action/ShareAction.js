@@ -6,7 +6,7 @@ import MButton from '../m-button/MButton';
 import CameraSvg from './camera.svg';
 import './ShareAction.scss';
 
-function ShareAction() {
+function ShareAction({ submitCallback }) {
   const [description, setDescription] = useState('');
   const [isError, setIsError] = useState(false);
   const [images, setImages] = useState([]);
@@ -16,7 +16,7 @@ function ShareAction() {
   }
 
   const handleSubmit = () => {
-    if (images) {
+    if (images && images.length) {
       bulkUpload(images, (uploaded) => {
         //uploaded has list of file names that was uploaded successfully
         if ( uploaded.length === 0 ){
@@ -32,6 +32,7 @@ function ShareAction() {
         createAction(action, (result) => {
           if (result.actionId) {
             alert("Thank you for doing your 1 thing to fight against racism!\n");
+            submitCallback && submitCallback();
           }
           else {
             alert("Failed to create action, please try again later!");
@@ -42,12 +43,12 @@ function ShareAction() {
     }
     else {
       const action = {
-        created_by: "Anonymous",
         name: "description",
         description: description,
         categories: ["awareness"]
       }
-      createAction(action, () => alert("Thank you for doing your 1 thing to fight against racism!"))
+      createAction(action, () => alert("Thank you for doing your 1 thing to fight against racism!"));
+      submitCallback && submitCallback();
     }
 
 

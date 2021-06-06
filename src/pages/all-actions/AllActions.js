@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getActions } from '../../api/actions';
 import ActionListItem from '../../components/action-list-item/ActionListItem';
+import Loading from '../../components/loading/Loading';
 import MButton from '../../components/m-button/MButton';
 import ShareAction from '../../components/share-action/ShareAction';
 import { DOMAIN } from '../../constants';
@@ -48,14 +49,14 @@ function AllActions() {
           );
         })}
         {isError ? 'Error getting actions': ''}
-        {isLoading ? 'Loading...' : (
+        {isLoading ? <Loading /> : (
           !isAllLoaded ? <MButton color="primary" onClick={getNextActions}>Show more</MButton> : null
         )}
         {actions && !actions.length && !isLoading && !isError && (
           <div>No actions have been shared yet, post one below!</div>
         )}
       </div>
-      <ShareAction />
+      <ShareAction submitCallback={() => window.location.reload()} />
     </div>
   );
 }
