@@ -2,6 +2,12 @@
 
 Frontend of the #1Thing web application built by the #1Thing team during the [Tech For AAPI](https://www.techforaapi.org/) hackathon.
 
+## Getting started
+
+#### `npm start`
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
 ## Tools
 The web application is written in ReactJS with hooks and functional components. [Material UI](https://mui.com/) is used for design system. [Sass](https://sass-lang.com/) was chosen to be our css preprocessor. Tests are not yet implemented, but the plan was to use [react-testing-libaray](https://testing-library.com/docs/react-testing-library/intro/) for unit testing, and [cypress](https://www.cypress.io/) for UI/UX testing.
 
