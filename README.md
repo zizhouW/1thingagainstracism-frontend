@@ -1,9 +1,8 @@
 # #1Thing
 
-Frontend of the #1Thing web application built by the #1Thing team during the [Tech For AAPI](https://www.techforaapi.org/) hackathon.
+Frontend of the #1Thing web application built by the #1Thing team during the [Tech For AAPI](https://www.techforaapi.org/) hackathon. Our campaign #1ThingAgainstRacism aims to promote the anti-racism awareness by providing a social platform for anyone to share their stories happened around them that raises anti-racism awareness, as well as their experience on racism. The platform allows users to post, like, comment, and share stories with their friends, family, and/or the public, in efforts to raise awareness on stopping racism and hate crimes.
 
 ## Getting started
-
 #### `npm start`
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
